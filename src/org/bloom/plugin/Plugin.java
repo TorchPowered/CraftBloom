@@ -18,6 +18,7 @@ public abstract class Plugin {
     public Plugin(String name, String version, Thread thread){
         this.name = name;
         this.version = version;
+        this.thread = thread;
     }
 
     public String getName() {
