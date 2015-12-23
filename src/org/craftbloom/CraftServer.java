@@ -26,6 +26,10 @@ public class CraftServer extends BloomComponents implements Server {
         System.setProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager");
     }
 
+    public void setupCodedEvents(){
+        super.setupDefaultEvents();
+    }
+
     @Override
     public SocketAddress getAddress() {
         String hostname = MinecraftServer.getServer().getHostname();

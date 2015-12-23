@@ -8,6 +8,7 @@ public class BloomLauncher {
         CraftServer server = new CraftServer();
         server.setupLogging();
         Bloom.setServer(server);
+        server.setupCodedEvents();
         MinecraftServer.main(args);
     }
 }
