@@ -78,6 +78,8 @@ import net.minecraft.world.storage.WorldInfo;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bloom.plugin.JavaPluginLoader;
+import org.bloom.plugin.Plugin;
 
 public abstract class MinecraftServer implements Runnable, ICommandSender, IThreadListener, IPlayerUsage
 {
@@ -447,7 +449,10 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
         if (!this.worldIsBeingDeleted)
         {
             logger.info("Stopping server");
-
+            logger.info("Stopping plugins");
+            for (Plugin plugin : JavaPluginLoader.getPlugins()){
+                plugin.disablePlugin();
+            }
             if (this.getNetworkSystem() != null)
             {
                 this.getNetworkSystem().terminateEndpoints();
