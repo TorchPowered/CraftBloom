@@ -39,7 +39,7 @@ public class JavaPluginLoader {
         });
         thread.setDaemon(true);
         Object instance = mainClass.getConstructor(Thread.class).newInstance(thread);
-        if(!mainClass.isAssignableFrom(Plugin.class)){
+        if(!(instance instanceof Plugin)){
             throw new Exception();
         }
         Plugin plugin = (Plugin) instance;
