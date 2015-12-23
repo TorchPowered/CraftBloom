@@ -11,6 +11,7 @@ CraftBloom is awesomely fast, concurrent, and multi-threaded implementation of B
 Please execute these commands in a empty directory with a terminal/command prompt in there.
 - ```git clone https://github.com/TorchPowered/CraftBloom.git```
 - ```gradlew build``` or for linux users: ```./gradlew build```
+
 A jar should be built after that process.
 
 ## Sources
