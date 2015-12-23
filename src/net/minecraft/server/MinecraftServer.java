@@ -1050,7 +1050,7 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
 
     public String getServerModName()
     {
-        return "vanilla";
+        return "craftboom";
     }
 
     /**
