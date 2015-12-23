@@ -1,0 +1,41 @@
+group 'net.torchpowered'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceSets.main.java.srcDirs = ["src"]
+sourceSets.main.resources.srcDirs = ["resources"]
+
+repositories {
+    mavenCentral()
+    maven { url "https://libraries.minecraft.net" }
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "org.craftbloom.BloomLauncher"
+    }
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+        configurations.runtime.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'io.netty:netty-all:4.0.33.Final'
+    compile 'commons-io:commons-io:2.4'
+    compile 'org.apache.logging.log4j:log4j-api:2.5'
+    compile 'org.apache.logging.log4j:log4j-core:2.5'
+    compile 'org.apache.logging.log4j:log4j-jul:2.5'
+    compile 'commons-codec:commons-codec:1.10'
+    compile 'com.mojang:authlib:1.5.21'
+    compile 'com.google.guava:guava:19.0'
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'javax.annotation:javax.annotation-api:1.2'
+}
