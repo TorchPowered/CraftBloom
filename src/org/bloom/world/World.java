@@ -1,6 +1,6 @@
 package org.bloom.world;
 
-import org.bloom.entity.Entity;
+import org.bloom.entity.EntityType;
 import org.bloom.util.Position;
 
 /**
@@ -15,10 +15,10 @@ public interface World {
 
     /**
      * Spawns a entity in the world
-     * @param entity the entity
+     * @param entity the entitytype enum
      * @param pos the position
      */
-    void spawnEntityInWorld(Entity entity, Position pos);
+    void spawnEntityInWorld(EntityType entity, Position pos);
 
     /**
      * Creates a explosion at the specified position

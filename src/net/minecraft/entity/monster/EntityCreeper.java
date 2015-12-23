@@ -215,6 +215,15 @@ public class EntityCreeper extends EntityMob
         return this.dataWatcher.getWatchableObjectByte(17) == 1;
     }
 
+    public void setPowered(boolean powered) {
+        if (!powered) {
+            this.dataWatcher.updateObject(17, Byte.valueOf((byte) 0));
+        } else {
+            this.dataWatcher.updateObject(17, Byte.valueOf((byte) 1));
+        }
+    }
+
+
     protected Item getDropItem()
     {
         return Items.gunpowder;

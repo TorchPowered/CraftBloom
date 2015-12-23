@@ -59,6 +59,9 @@ import net.minecraft.world.storage.IPlayerFileData;
 import net.minecraft.world.storage.WorldInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bloom.Bloom;
+import org.bloom.event.PlayerJoinEvent;
+import org.craftbloom.entity.CraftPlayer;
 
 public abstract class ServerConfigurationManager
 {
@@ -190,6 +193,12 @@ public abstract class ServerConfigurationManager
                 playerIn.mountEntity(entity);
                 entity.forceSpawn = false;
             }
+        }
+
+        PlayerJoinEvent joinEvent = new PlayerJoinEvent(new CraftPlayer(playerIn));
+        Bloom.getEventManager().callEvent(joinEvent);
+        if(joinEvent.isCancelled()){
+            playerIn.playerNetServerHandler.kickPlayerFromServer("Event cancelled.");
         }
     }
 
