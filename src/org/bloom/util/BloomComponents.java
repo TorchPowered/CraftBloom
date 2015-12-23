@@ -1,6 +1,7 @@
 package org.bloom.util;
 
 import org.bloom.Bloom;
+import org.bloom.event.PlayerJoinEvent;
 import org.bloom.event.PluginStartingEvent;
 
 /**
@@ -10,5 +11,6 @@ import org.bloom.event.PluginStartingEvent;
 public class BloomComponents {
     public void setupDefaultEvents(){
         Bloom.getEventManager().registerEventClass(PluginStartingEvent.class);
+        Bloom.getEventManager().registerEventClass(PlayerJoinEvent.class);
     }
 }

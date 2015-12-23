@@ -24,7 +24,7 @@ public class Bloom {
      * @param server the server
      */
     public static void setServer(Server server){
-        org.bloom.Bloom.server = server;
+        Bloom.server = server;
         for (Player player : server.getOnlinePlayers()){
             nameToPlayer.put(player.getDisplayName(), player);
             uuidToPlayer.put(player.getUUID(), player);
@@ -92,7 +92,7 @@ public class Bloom {
      * @return the event manager
      */
     public static EventManager getEventManager(){
-        return new EventManager(new org.bloom.Bloom());
+        return new EventManager(new Bloom());
     }
 
     /**
@@ -108,6 +108,6 @@ public class Bloom {
      * @return the plugin manager
      */
     public static PluginManager getPluginManager(){
-        return new PluginManager(new org.bloom.Bloom());
+        return new PluginManager(new Bloom());
     }
 }

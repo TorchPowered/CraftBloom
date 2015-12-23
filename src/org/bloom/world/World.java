@@ -19,4 +19,12 @@ public interface World {
      * @param pos the position
      */
     void spawnEntityInWorld(Entity entity, Position pos);
+
+    /**
+     * Creates a explosion at the specified position
+     * @param pos the position
+     * @param strength the strength of the explosion
+     * @param isSmoking if the explosion creates smoke
+     */
+    void createExplosion(Position pos, float strength, boolean isSmoking);
 }

@@ -43,7 +43,7 @@ public abstract class Plugin {
     public void disablePlugin(){
         onDisable();
         thread.stop();
-        org.bloom.plugin.JavaPluginLoader.nameToPlugin.remove(getName());
+        JavaPluginLoader.nameToPlugin.remove(getName());
     }
 
     public void startPlugin(){

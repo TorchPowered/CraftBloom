@@ -43,7 +43,7 @@ public interface Entity {
      * Teleports to another entity
      * @param entity the another entity
      */
-    void teleport(org.bloom.entity.Entity entity);
+    void teleport(Entity entity);
 
     /**
      * Teleports the entity to the position

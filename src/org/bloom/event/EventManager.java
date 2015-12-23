@@ -29,7 +29,7 @@ public class EventManager {
         for (Method method : allMethods){
             Class[] parameterClasses = method.getParameterTypes();
             for(Class parameterClass : parameterClasses){
-                if(parameterClass.isAssignableFrom(org.bloom.event.Event.class)){
+                if(parameterClass.isAssignableFrom(Event.class)){
                     eventMethods.put(listenerClass, method);
                 }
             }
@@ -37,7 +37,7 @@ public class EventManager {
     }
 
     public void registerEventClass(Class eventClass){
-        if(eventClass.isAssignableFrom(org.bloom.event.Event.class)){
+        if(eventClass.isAssignableFrom(Event.class)){
             eventClasses.add(eventClass);
         }
     }
