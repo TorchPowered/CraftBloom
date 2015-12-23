@@ -52,7 +52,7 @@ public class MinecraftServerGui extends JComponent
         }
 
         MinecraftServerGui minecraftservergui = new MinecraftServerGui(serverIn);
-        JFrame jframe = new JFrame("Minecraft server");
+        JFrame jframe = new JFrame("CraftBloom server");
         jframe.add(minecraftservergui);
         jframe.pack();
         jframe.setLocationRelativeTo((Component)null);
