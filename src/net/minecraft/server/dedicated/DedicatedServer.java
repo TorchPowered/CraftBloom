@@ -32,7 +32,9 @@ import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bloom.Bloom;
 import org.bloom.plugin.JavaPluginLoader;
+import org.craftbloom.CraftServer;
 
 public class DedicatedServer extends MinecraftServer implements IServer
 {
@@ -245,6 +247,12 @@ public class DedicatedServer extends MinecraftServer implements IServer
                 this.settings.setProperty("max-build-height", Integer.valueOf(this.getBuildLimit()));
                 logger.info("Preparing level \"" + this.getFolderName() + "\"");
                 this.loadAllWorlds(this.getFolderName(), this.getFolderName(), k, worldtype, s2);
+                logger.info("Loading API");
+                CraftServer server = new CraftServer();
+                server.setupLogging();
+                Bloom.setServer(server);
+                server.setupCodedEvents();
+                logger.info("API loaded");
                 logger.info("Loading plugins");
                 File workDir = new File(System.getProperty("user.dir"));
                 File pluginFolder = new File(workDir, "plugins");
