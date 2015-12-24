@@ -3,6 +3,7 @@ package org.craftbloom.world;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -48,6 +49,9 @@ public class CraftWorld implements org.bloom.world.World{
                 break;
             case ZOMBIE:
                 entity = new EntityZombie(world);
+                break;
+            case RABBIT:
+                entity = new EntityRabbit(world);
                 break;
             default:
                 return;
