@@ -57,6 +57,6 @@ public class CraftWorld implements org.bloom.world.World{
 
     @Override
     public void createExplosion(Position pos, float strength, boolean isSmoking) {
-
+        world.createExplosion(null, pos.getX(), pos.getY(), pos.getZ(), strength, isSmoking);
     }
 }
