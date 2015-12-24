@@ -1,4 +1,4 @@
-# CraftBloom
+# CraftBloom [![Build Status](https://travis-ci.org/TorchPowered/CraftBloom.svg?branch=master)](https://travis-ci.org/TorchPowered/CraftBloom)
 CraftBloom is awesomely fast, concurrent, and multi-threaded implementation of Bloom API in the default Minecraft Server.
 
 ## Prerequisites
