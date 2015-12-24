@@ -6,14 +6,12 @@ import org.bloom.Bloom;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A event manager
  */
 public class EventManager {
-    public static Map<Class, Method> eventMethods = new HashMap<Class, Method>();
+    public static ArrayList<Method> eventMethods = new ArrayList<Method>();
     public static ArrayList<Class> eventClasses = new ArrayList<Class>();
 
     public EventManager(Bloom bloom){
@@ -29,35 +27,42 @@ public class EventManager {
         for (Method method : allMethods){
             Class[] parameterClasses = method.getParameterTypes();
             for(Class parameterClass : parameterClasses){
-                if(parameterClass.isAssignableFrom(Event.class)){
-                    eventMethods.put(listenerClass, method);
+                if(Event.class.isAssignableFrom(parameterClass)){
+                    eventMethods.add(method);
                 }
             }
         }
     }
 
     public void registerEventClass(Class eventClass){
-        if(eventClass.isAssignableFrom(Event.class)){
+        if(Event.class.isAssignableFrom(eventClass)){
             eventClasses.add(eventClass);
         }
     }
 
     public void callEvent(Event event){
         Validate.notNull(event);
-        for (Map.Entry<Class, Method> methodEntry : eventMethods.entrySet()){
-            Method method = methodEntry.getValue();
-            Class theClassDeclaring = methodEntry.getKey();
-            Class[] parameters = method.getParameterTypes();
-            for(Class parameter : parameters){
-                for (Class eventClass : eventClasses){
-                    if(eventClass == parameter){
-                        try {
-                            method.invoke(theClassDeclaring, method);
-                        } catch (IllegalAccessException e) {
-                            e.printStackTrace();
-                        } catch (InvocationTargetException e) {
-                            e.printStackTrace();
-                        }
+        for (Method method : eventMethods){
+            for(Class parameterClass : method.getParameterTypes()) {
+                if (parameterClass == PlayerJoinEvent.class && event instanceof PlayerJoinEvent) {
+                    try {
+                        method.invoke(method.getDeclaringClass().newInstance(), (PlayerJoinEvent) event);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (parameterClass == PlayerLeaveEvent.class && event instanceof PlayerLeaveEvent) {
+                    try {
+                        method.invoke(method.getDeclaringClass().newInstance(), (PlayerLeaveEvent) event);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(parameterClass == PluginStartingEvent.class && event instanceof PluginStartingEvent){
+                    try {
+                        method.invoke(method.getDeclaringClass().newInstance(), (PluginStartingEvent) event);
+                    } catch (Exception e){
+                        e.printStackTrace();
                     }
                 }
             }

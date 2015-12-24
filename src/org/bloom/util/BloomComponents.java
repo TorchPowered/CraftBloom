@@ -1,6 +1,7 @@
 package org.bloom.util;
 
 import org.bloom.Bloom;
+import org.bloom.event.Event;
 import org.bloom.event.PlayerJoinEvent;
 import org.bloom.event.PlayerLeaveEvent;
 import org.bloom.event.PluginStartingEvent;

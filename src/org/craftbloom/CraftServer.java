@@ -22,12 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CraftServer extends BloomComponents implements Server {
-    public void setupLogging(){
-        System.setProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager");
-    }
-
     public void setupCodedEvents(){
-        super.setupDefaultEvents();
+        setupDefaultEvents();
     }
 
     @Override

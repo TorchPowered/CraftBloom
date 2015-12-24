@@ -249,7 +249,6 @@ public class DedicatedServer extends MinecraftServer implements IServer
                 this.loadAllWorlds(this.getFolderName(), this.getFolderName(), k, worldtype, s2);
                 logger.info("Loading API");
                 CraftServer server = new CraftServer();
-                server.setupLogging();
                 Bloom.setServer(server);
                 server.setupCodedEvents();
                 logger.info("API loaded");

@@ -1,9 +1,8 @@
 package org.bloom.plugin;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.bloom.plugin.event.BloomPluginHandler;
-
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 /**
  * Represents a Bloom plugin
@@ -30,7 +29,7 @@ public abstract class Plugin {
     }
 
     public Logger getLogger(){
-        return LogManager.getLogManager().getLogger(getName());
+        return LogManager.getLogger(getName());
     }
 
     public void onEnable(BloomPluginHandler handler){}

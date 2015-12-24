@@ -60,6 +60,7 @@ import net.minecraft.world.storage.WorldInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bloom.Bloom;
+import org.bloom.entity.Player;
 import org.bloom.event.PlayerJoinEvent;
 import org.craftbloom.entity.CraftPlayer;
 
