@@ -1,9 +1,9 @@
 package org.bloom.util;
 
 import org.bloom.Bloom;
-import org.bloom.event.Event;
 import org.bloom.event.PlayerJoinEvent;
 import org.bloom.event.PlayerLeaveEvent;
+import org.bloom.event.PlayerMoveEvent;
 import org.bloom.event.PluginStartingEvent;
 
 /**
@@ -15,5 +15,6 @@ public class BloomComponents {
         Bloom.getEventManager().registerEventClass(PluginStartingEvent.class);
         Bloom.getEventManager().registerEventClass(PlayerJoinEvent.class);
         Bloom.getEventManager().registerEventClass(PlayerLeaveEvent.class);
+        Bloom.getEventManager().registerEventClass(PlayerMoveEvent.class);
     }
 }
