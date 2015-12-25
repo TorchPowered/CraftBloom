@@ -9,6 +9,13 @@ sourceSets.main.resources.srcDirs = ["resources"]
 repositories {
     mavenCentral()
     maven { url "https://libraries.minecraft.net" }
+    maven {
+        url "https://mymavenrepo.com/repo/WkjYtmphNwDD4TYWXLEh/"
+        credentials {
+            username 'myMavenRepo'
+            password "publicrepository"
+        }
+    }
 }
 
 jar {
@@ -38,4 +45,5 @@ dependencies {
     compile 'com.google.guava:guava:19.0'
     compile 'com.google.code.gson:gson:2.5'
     compile 'javax.annotation:javax.annotation-api:1.2'
+    compile 'net.torchpowered:Bloom:0.1-SNAPSHOT'
 }

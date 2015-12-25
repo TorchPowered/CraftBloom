@@ -109,4 +109,10 @@ public class CraftServer extends BloomComponents implements Server {
         CommandHandler handler = (CommandHandler) MinecraftServer.getServer().getCommandManager();
         handler.registerCommand(convertedCommand);
     }
+
+    @Override
+    public void kickPlayer(Player player, String s) {
+        EntityPlayerMP playerMP = MinecraftServer.getServer().getConfigurationManager().getPlayerByUUID(player.getUUID());
+        playerMP.playerNetServerHandler.kickPlayerFromServer(s);
+    }
 }

@@ -28,5 +28,6 @@
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.5" level="project" />
     <orderEntry type="library" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:2.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: net.torchpowered:Bloom:0.1-SNAPSHOT" level="project" />
   </component>
 </module>
