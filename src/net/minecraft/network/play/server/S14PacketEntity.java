@@ -1,9 +1,16 @@
 package net.minecraft.network.play.server;
 
 import java.io.IOException;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayClient;
+import org.bloom.Bloom;
+import org.bloom.event.PlayerMoveEvent;
+import org.craftbloom.entity.CraftPlayer;
 
 public class S14PacketEntity implements Packet<INetHandlerPlayClient>
 {
@@ -60,13 +67,17 @@ public class S14PacketEntity implements Packet<INetHandlerPlayClient>
         {
         }
 
-        public S15PacketEntityRelMove(int entityIdIn, byte x, byte y, byte z, boolean onGroundIn)
+        public S15PacketEntityRelMove(Entity entity, int entityIdIn, byte x, byte y, byte z, boolean onGroundIn)
         {
             super(entityIdIn);
             this.posX = x;
             this.posY = y;
             this.posZ = z;
             this.onGround = onGroundIn;
+            if(entity instanceof EntityPlayer){
+                PlayerMoveEvent event = new PlayerMoveEvent(new CraftPlayer((EntityPlayerMP) entity));
+                Bloom.getEventManager().callEvent(event);
+            }
         }
 
         public void readPacketData(PacketBuffer buf) throws IOException
