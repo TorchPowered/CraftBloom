@@ -1,10 +1,7 @@
 package org.bloom.util;
 
 import org.bloom.Bloom;
-import org.bloom.event.PlayerJoinEvent;
-import org.bloom.event.PlayerLeaveEvent;
-import org.bloom.event.PlayerMoveEvent;
-import org.bloom.event.PluginStartingEvent;
+import org.bloom.event.*;
 
 /**
  * Some required components for implementing Bloom.
@@ -16,5 +13,6 @@ public class BloomComponents {
         Bloom.getEventManager().registerEventClass(PlayerJoinEvent.class);
         Bloom.getEventManager().registerEventClass(PlayerLeaveEvent.class);
         Bloom.getEventManager().registerEventClass(PlayerMoveEvent.class);
+        Bloom.getEventManager().registerEventClass(PluginStopEvent.class);
     }
 }

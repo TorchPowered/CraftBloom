@@ -78,6 +78,8 @@ import net.minecraft.world.storage.WorldInfo;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bloom.Bloom;
+import org.bloom.event.PluginStopEvent;
 import org.bloom.plugin.JavaPluginLoader;
 import org.bloom.plugin.Plugin;
 
@@ -452,6 +454,7 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
             logger.info("Stopping plugins");
             for (Plugin plugin : JavaPluginLoader.getPlugins()){
                 plugin.disablePlugin();
+                Bloom.getEventManager().callEvent(new PluginStopEvent(plugin));
             }
             if (this.getNetworkSystem() != null)
             {

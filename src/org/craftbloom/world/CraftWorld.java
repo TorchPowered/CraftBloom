@@ -1,5 +1,6 @@
 package org.craftbloom.world;
 
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
@@ -62,5 +63,13 @@ public class CraftWorld implements org.bloom.world.World{
     @Override
     public void createExplosion(Position pos, float strength, boolean isSmoking) {
         world.createExplosion(null, pos.getX(), pos.getY(), pos.getZ(), strength, isSmoking);
+    }
+
+    @Override
+    public void strikeLightning(Position position) {
+        if(!world.canLightningStrike(new BlockPos(position.getX(), position.getY(), position.getZ()))){
+            return;
+        }
+        world.spawnEntityInWorld(new EntityLightningBolt(world, position.getX(), position.getY(), position.getZ()));
     }
 }

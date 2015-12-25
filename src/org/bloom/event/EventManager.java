@@ -3,7 +3,6 @@ package org.bloom.event;
 import org.apache.commons.lang3.Validate;
 import org.bloom.Bloom;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
@@ -61,6 +60,20 @@ public class EventManager {
                 if(parameterClass == PluginStartingEvent.class && event instanceof PluginStartingEvent){
                     try {
                         method.invoke(method.getDeclaringClass().newInstance(), (PluginStartingEvent) event);
+                    } catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                if(parameterClass == PlayerMoveEvent.class && event instanceof PlayerMoveEvent){
+                    try{
+                        method.invoke(method.getDeclaringClass().newInstance(), (PlayerMoveEvent) event);
+                    } catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                if(parameterClass == PluginStopEvent.class && event instanceof PluginStopEvent){
+                    try{
+                        method.invoke(method.getDeclaringClass().newInstance(), (PluginStopEvent) event);
                     } catch (Exception e){
                         e.printStackTrace();
                     }
