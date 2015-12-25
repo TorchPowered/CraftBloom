@@ -5,6 +5,9 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.INetHandlerPlayClient;
 import net.minecraft.util.IChatComponent;
+import org.bloom.Bloom;
+import org.bloom.entity.Player;
+import org.bloom.event.PlayerLeaveEvent;
 
 public class S40PacketDisconnect implements Packet<INetHandlerPlayClient>
 {
@@ -12,6 +15,11 @@ public class S40PacketDisconnect implements Packet<INetHandlerPlayClient>
 
     public S40PacketDisconnect()
     {
+    }
+
+    public S40PacketDisconnect(IChatComponent reasonIn, Player player){
+        Bloom.getEventManager().callEvent(new PlayerLeaveEvent(player));
+        this.reason = reasonIn;
     }
 
     public S40PacketDisconnect(IChatComponent reasonIn)
