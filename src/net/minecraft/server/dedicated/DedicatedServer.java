@@ -35,6 +35,8 @@ import org.apache.logging.log4j.Logger;
 import org.bloom.Bloom;
 import org.bloom.plugin.JavaPluginLoader;
 import org.craftbloom.CraftServer;
+import org.craftbloom.cmd.defaults.CommandAbout;
+import org.craftbloom.cmd.defaults.CommandPlugin;
 
 public class DedicatedServer extends MinecraftServer implements IServer
 {
@@ -251,6 +253,8 @@ public class DedicatedServer extends MinecraftServer implements IServer
                 CraftServer server = new CraftServer();
                 Bloom.setServer(server);
                 server.setupCodedEvents();
+                Bloom.getServer().registerCommand(new CommandAbout());
+                Bloom.getServer().registerCommand(new CommandPlugin());
                 logger.info("API loaded");
                 logger.info("Loading plugins");
                 File workDir = new File(System.getProperty("user.dir"));

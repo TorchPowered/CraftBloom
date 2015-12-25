@@ -74,7 +74,7 @@ public class CraftServer extends BloomComponents implements Server {
 
             @Override
             public List<String> getCommandAliases() {
-                return null;
+                return new ArrayList<String>();
             }
 
             @Override
