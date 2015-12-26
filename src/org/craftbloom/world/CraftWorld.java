@@ -5,6 +5,7 @@ import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityGuardian;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
@@ -59,7 +60,7 @@ public class CraftWorld implements org.bloom.world.World{
                 entity = new EntityGuardian(world);
                 break;
             case COW:
-                entity = new EntityGuardian(world);
+                entity = new EntityCow(world);
                 break;
             default:
                 return;
