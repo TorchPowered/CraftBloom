@@ -2,6 +2,7 @@ package org.craftbloom.world;
 
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityGuardian;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityRabbit;
@@ -53,6 +54,12 @@ public class CraftWorld implements org.bloom.world.World{
                 break;
             case RABBIT:
                 entity = new EntityRabbit(world);
+                break;
+            case GUARDIAN:
+                entity = new EntityGuardian(world);
+                break;
+            case COW:
+                entity = new EntityGuardian(world);
                 break;
             default:
                 return;
